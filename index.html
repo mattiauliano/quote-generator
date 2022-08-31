@@ -14,7 +14,49 @@
             <p class="quote">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In saepe dolor cum, culpa, similique quos nobis velit id iste libero sint, perspiciatis sed tempora. Nobis temporibus tempora suscipit fugit. Maiores!</p>
             <p class="person">LeBron James</p>
         </div>
-        <button>Generate Quote</button>
+        <button class="button">Generate Quote</button>
     </div>
+
+    <script>
+
+        // DOM Manipulation variables
+        const quoteDiv = document.querySelector(".quote");
+        const personDiv = document.querySelector(".person");
+        const button = document.querySelector(".button"); 
+
+
+        // Array with object model {person: quote}
+        const quotes = [
+            ["Snoop Dogg", "You've got to always go back in time if you want to move forward."],
+            ["Muhammad Ali", "I done wrestled with an alligator, I done tussled with a whale; handcuffed lightning, thrown thunder in jail; only last week, I murdered a rock, injured a stone, hospitalised a brick; I'm so mean I make medicine sick."],
+            ["Epictetus", "There is only one way to happiness and that is to cease worrying about things which are beyond the power of our will."],
+            ["Dalai Lama", "This is my simple religion. There is no need for temples; no need for complicated philosophy. Our own brain, our own heart is our temple; the philosophy is kindness."],
+            ["Kurt Cobain", "Drugs are a waste of time. They destroy your memory and your self-respect and everything that goes along with with your self-esteem. They're no good at all."],
+        ]
+
+        // Get random quote from the array
+        let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        let quoteToAdd = randomQuote[1];
+        let personToAdd = randomQuote[0];
+
+        // Default random quote
+        quoteDiv.textContent = `"${quoteToAdd}"`;
+        personDiv.textContent = `- ${personToAdd}`;
+        
+        // Button event listener: get a random quote after clicking the button
+        button.addEventListener('click', (e) => {
+
+            // Get another random quote from quotes list
+            randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteToAdd = randomQuote[1];
+            personToAdd = randomQuote[0];
+            // Replace the default random quotes
+            quoteDiv.textContent = `"${quoteToAdd}"`;
+            personDiv.textContent = `- ${personToAdd}`;
+        })
+
+
+
+    </script>
 </body>
 </html>
